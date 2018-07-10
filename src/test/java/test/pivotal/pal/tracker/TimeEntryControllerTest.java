@@ -1,5 +1,6 @@
 package test.pivotal.pal.tracker;
 
+import io.pivotal.pal.tracker.InMemoryTimeEntryRepository;
 import io.pivotal.pal.tracker.TimeEntry;
 import io.pivotal.pal.tracker.TimeEntryController;
 import io.pivotal.pal.tracker.TimeEntryRepository;
@@ -23,13 +24,13 @@ public class TimeEntryControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        timeEntryRepository = mock(TimeEntryRepository.class);
+        timeEntryRepository = mock(InMemoryTimeEntryRepository.class);
         controller = new TimeEntryController(timeEntryRepository);
     }
 
     @Test
     public void testCreate() throws Exception {
-        TimeEntry timeEntryToCreate = new TimeEntry(123L, 456L, LocalDate.parse("2017-01-08"), 8);
+        TimeEntry timeEntryToCreate = new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8);
         TimeEntry expectedResult = new TimeEntry(1L, 123L, 456L, LocalDate.parse("2017-01-08"), 8);
         doReturn(expectedResult)
             .when(timeEntryRepository)
