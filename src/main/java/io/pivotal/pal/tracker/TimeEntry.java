@@ -11,6 +11,12 @@ public class TimeEntry implements Serializable {
     private LocalDate date;
     private int hours;
 
+    public TimeEntry(long projectId, long userId, LocalDate date, int hours) {
+        this.projectId = projectId;
+        this.userId = userId;
+        this.date = date;
+        this.hours = hours;
+    }
 
     public TimeEntry(long id, long projectId, long userId, LocalDate date, int hours) {
         this.id = id;
